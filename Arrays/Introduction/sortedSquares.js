@@ -10,13 +10,26 @@
  * @return {number[]}
  */
 var sortedSquares = function (nums) {
-    let resultArrNegative = [];
-    let resultArrPositive = [];
-    for (let item of nums) {
-        if (item < 0) resultArrNegative.unshift(item ** 2);
-        if (item > 0) {
-            resultArrPositive.push(item ** 2);
+
+    let resultArr = [nums.length - 1]
+
+    let leftCounter = 0;
+    let rightCounter = nums.length - 1;
+    let resultArrCounter = nums.length - 1;
+
+    let i = 0;
+    while (i < nums.length) {
+        leftNumberSquare = nums[leftCounter] ** 2;
+        rightNumberSquare = nums[rightCounter] ** 2;
+        if (leftNumberSquare > rightNumberSquare) {
+            resultArr[resultArrCounter] = leftNumberSquare;
+            leftCounter++;
+        } else {
+            resultArr[resultArrCounter] = rightNumberSquare;
+            rightCounter--;
         }
+        resultArrCounter--;
+        i++;
     }
-    return resultArrNegative.reverse();;
+    return resultArr;
 };
