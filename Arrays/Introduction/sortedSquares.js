@@ -19,6 +19,8 @@ var sortedSquares = function (nums) {
 
     let i = 0;
     while (i < nums.length) {
+        // Обходим с двух концов массива
+        // добавляем в результирующий с конца в начало (сначала помещается то число, которое больше)
         leftNumberSquare = nums[leftCounter] ** 2;
         rightNumberSquare = nums[rightCounter] ** 2;
         if (leftNumberSquare > rightNumberSquare) {
